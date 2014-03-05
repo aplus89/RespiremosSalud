@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    >
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Chronometer
+            android:id="@+id/cronometro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="Chronometer" />
+  
+    <LinearLayout
+        android:id="@+id/beneficios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_green" >
+
+        <ImageView
+            android:id="@+id/ImageView05"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:scaleType="center"
+            android:src="@drawable/home_icon_tiempo" />
+        
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            
+            <TextView
+            android:id="@+id/tiempo_text"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text="8d 9hr"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="40sp" />
+            
+            <TextView
+            android:id="@+id/TextView04"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text="Tiempo sin fumar"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+            
+            
+        </LinearLayout>
+
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/perfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_blue" >
+
+        <ImageView
+            android:id="@+id/ImageView04"
+            android:layout_width="74dp"
+            android:scaleType="center"
+            android:layout_height="74dp"
+            android:src="@drawable/home_icon_perfil" />
+
+        <TextView
+            android:id="@+id/puntos_text"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text="122"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="40sp" />
+        <TextView
+            android:id="@+id/TextView04"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text=" Puntos"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+        
+    </LinearLayout>
+
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/gradient_orange"
+        >
+    
+    <LinearLayout
+        android:id="@+id/ayudando"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         >
+
+        <ImageView
+            android:id="@+id/ImageView03"
+            android:layout_height="74dp"
+            android:layout_width="74dp"
+            android:scaleType="center"
+            android:src="@drawable/home_icon_ayudando" />
+
+        <TextView
+            android:id="@+id/TextView03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Ayudando a "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/ayudando_text"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="40sp" />
+        <TextView
+            android:id="@+id/TextView03"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text=" Personas"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ayudado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         >
+
+        <ImageView
+            android:id="@+id/ImageView02"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:scaleType="center"
+            android:src="@drawable/home_icon_ayudado" />
+
+        <TextView
+            android:id="@+id/ayudado_text"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text="11"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="40sp" />
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text=" Amigos te apoyan"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+    </LinearLayout>
+    
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/denuncia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_red" >
+
+        <ImageView
+            android:id="@+id/ImageView01"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:scaleType="center"
+            android:src="@drawable/home_icon_denuncia" />
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text="DENUNCIA"
+            android:textAllCaps="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="40sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ley"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_blue" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:scaleType="center"
+            android:src="@drawable/home_icon_ley" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text="LEY 9028"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="40sp" />
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/infos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000" >
+        
+        <fragment
+          android:id="@+id/infoFragment"
+          android:layout_width="match_parent"
+          android:layout_height="100dp"
+          android:name="cr.gov.respiremossalud.fragments.InfoFragment"/>
+    
+        
+        </LinearLayout>
+
+</LinearLayout>
+
+</ScrollView>

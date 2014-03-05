@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_green"
+    >
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+            android:padding="20dp"
+        >
+
+        <Chronometer
+            android:id="@+id/cronometro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="Chronometer" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Dinero que te has ahorrado."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fff"
+        android:textSize="20sp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="Dinero ahorrado" />
+
+        <TextView
+            android:id="@+id/dinero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="¢20,000.00"
+            android:textColor="#fff" />
+        
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Normalizando frecuencia cardiaca y presión arterial."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fff" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/porcentaje20min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="100%" />
+
+        <TextView
+            android:id="@+id/tiempo20min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:textColor="#fff"
+            android:text="20 minutos" />
+        
+    </FrameLayout>
+    
+    <ProgressBar
+        android:id="@+id/progress20min"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:progressDrawable="@drawable/toolbar_custom"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:progress="100" />
+
+        <!-- ....... -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Mejorando oxigenación pulmonar."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fff" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/porcentaje8hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="100%" />
+
+        <TextView
+            android:id="@+id/tiempo8hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:textColor="#fff"
+            android:text="8 horas" />
+        
+    </FrameLayout>
+    
+    <ProgressBar
+        android:id="@+id/progress8hr"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:progressDrawable="@drawable/toolbar_custom"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:progress="100" />
+
+        <!-- ....... -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Normalizando los sentidos de gusto y olfato."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fff" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/porcentaje48hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="100%" />
+
+        <TextView
+            android:id="@+id/tiempo48hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:textColor="#fff"
+            android:text="48 horas" />
+        
+    </FrameLayout>
+    
+    <ProgressBar
+        android:id="@+id/progress48hr"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:progressDrawable="@drawable/toolbar_custom"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:progress="100" />
+
+        <!-- ....... -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Normalizando la función respiratoria."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fff" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/porcentaje72hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="100%" />
+
+        <TextView
+            android:id="@+id/tiempo72hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:textColor="#fff"
+            android:text="72 horas" />
+        
+    </FrameLayout>
+    
+    <ProgressBar
+        android:id="@+id/progress72hr"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:progressDrawable="@drawable/toolbar_custom"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:progress="100" />
+
+        <!-- ....... -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Reduciendo los catarros, resfríos y bronquitis."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fff" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/porcentaje6mes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="50%" />
+
+        <TextView
+            android:id="@+id/tiempo6mes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:textColor="#fff"
+            android:text="6 Meses" />
+        
+    </FrameLayout>
+    
+    <ProgressBar
+        android:id="@+id/progress6mes"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:progressDrawable="@drawable/toolbar_custom"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:progress="50" />
+
+        <!-- ....... -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Reduciendo hasta la mitad el riesgo de infartos."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fff" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/porcentaje1yr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="25%" />
+
+        <TextView
+            android:id="@+id/tiempo1yr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:textColor="#fff"
+            android:text="1 año" />
+        
+    </FrameLayout>
+    
+    <ProgressBar
+        android:id="@+id/progress1yr"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/toolbar_custom"
+        android:layout_marginTop="10dp"
+        android:progress="25" />
+
+        <!-- ....... -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Alcanzando el riesgo de padecer enfermedades del corazón igualado al de los no fumadores."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fff" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/porcentaje4yr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="6.25%" />
+
+        <TextView
+            android:id="@+id/tiempo4yr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:textColor="#fff"
+            android:text="4 años" />
+        
+    </FrameLayout>
+    
+    <ProgressBar
+        android:id="@+id/progress4yr"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/toolbar_custom"
+        android:layout_marginTop="10dp"
+        android:progress="6" />
+
+        <!-- ....... -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Alcanzando el riesgo de padecer cáncer de pulmón igualado al de los no fumadores."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fff" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/porcentaje10yr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="2.5%" />
+
+        <TextView
+            android:id="@+id/tiempo10yr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:textColor="#fff"
+            android:text="10 años" />
+        
+    </FrameLayout>
+    
+    <ProgressBar
+        android:id="@+id/progress10yr"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/toolbar_custom"
+        android:layout_marginTop="10dp"
+        android:progress="2" />
+
+        <!-- ....... -->   
+    
+    </LinearLayout>
+
+</ScrollView>
