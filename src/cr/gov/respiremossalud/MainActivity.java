@@ -35,6 +35,7 @@ import com.parse.ParseUser;
 import com.parse.PushService;
 
 import cr.gov.respiremossalud.fragments.InfoFragment;
+import cr.gov.respiremossalud.fragments.MensajesFragment;
 import cr.gov.respiremossalud.model.User;
 
 public class MainActivity extends SherlockActivity implements OnClickListener {
@@ -102,7 +103,7 @@ public class MainActivity extends SherlockActivity implements OnClickListener {
 		startActivity(intent);		
 	}
 	private void showHomeActiviy() {
-		Intent intent = new Intent(this, RedisenoActivity.class);
+		Intent intent = new Intent(this, MensajesFragment.class);
 		startActivity(intent);
 	}
 

@@ -23,15 +23,18 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-public class ReciveMessagesActivity extends SherlockActivity implements
+public class ReciveMessagesActivity extends Fragment implements
 		OnClickListener {
 	private ListView list_messages;
 	private EditText edit_message;
@@ -41,31 +44,35 @@ public class ReciveMessagesActivity extends SherlockActivity implements
 	private ParseUser currentUser;
 	private ParseUser friendTo;
 	private ProgressDialog progressDialog;
-
+	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.recive_messages);
-//		getSupportActionBar().setTitle(getString(R.string.title_mensajes_apoyo));
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		
+		View view = inflater.inflate(R.layout.recive_messages, null);
+		
 		currentUser = ParseUser.getCurrentUser();
 		
 		// friendTo = (ParseUser) ParseObject.createWithoutData("_User",
 		// intent.getStringExtra("toId"));
 
-		list_messages = (ListView) findViewById(R.id.list_messages);
+		list_messages = (ListView) view.findViewById(R.id.list_messages);
 
-		messageAdapter = new MessagesAdapter(this, messagesData, true, true);
+		messageAdapter = new MessagesAdapter(getActivity(), messagesData, true, true);
 		list_messages.setAdapter(messageAdapter);
 
-		ActionBar actionBar = getSupportActionBar();
-		actionBar.setTitle("Recive Mensajes Positivos");
+//		ActionBar actionBar = getSupportActionBar();
+//		actionBar.setTitle("Recive Mensajes Positivos");
 
 		getMessages();
-
+		
+		return view;
+		
 	}
 
+
 	private void getMessages() {
-		 progressDialog = ProgressDialog.show(this, "", "Obteniendo mensajes...", true);
+		 progressDialog = ProgressDialog.show(getActivity(), "", "Obteniendo mensajes...", true);
 		ParseQuery<ParseObject> query = ParseQuery.getQuery(Message.CLASS);
 		query.whereEqualTo("to", currentUser);
 		query.whereNotEqualTo("aceptado", false);
@@ -157,19 +164,19 @@ public class ReciveMessagesActivity extends SherlockActivity implements
 
 	}
 	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-
-		ActionBar actionBar = getSupportActionBar();
-	    actionBar.setDisplayShowTitleEnabled(false);
-	    actionBar.setDisplayShowHomeEnabled(false);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-		actionBar.setCustomView(R.layout.recivido_menu);
-		actionBar.setDisplayShowCustomEnabled(true);
-				
-		return true;
-
-	}
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//
+//		ActionBar actionBar = getSupportActionBar();
+//	    actionBar.setDisplayShowTitleEnabled(false);
+//	    actionBar.setDisplayShowHomeEnabled(false);
+//		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+//		actionBar.setCustomView(R.layout.recivido_menu);
+//		actionBar.setDisplayShowCustomEnabled(true);
+//				
+//		return true;
+//
+//	}
 	
 	//
 	// @Override

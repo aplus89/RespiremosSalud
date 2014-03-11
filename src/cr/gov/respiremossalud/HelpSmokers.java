@@ -12,8 +12,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -33,43 +36,39 @@ import com.parse.ParseUser;
 import cr.gov.respiremossalud.data.UserAdapter;
 import cr.gov.respiremossalud.model.User;
 
-public class HelpSmokers extends SherlockListActivity implements OnClickListener {
+public class HelpSmokers extends ListFragment implements OnClickListener {
 	private ListView listFriends;
 	private ParseUser currentUser;
 	protected UserAdapter userAdapter;
 	private ArrayList<User> friends = new ArrayList<User>();
 	private ProgressDialog progressDialog;
-
+	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.help_smokers);
-
-//		getSupportActionBar().setTitle(getString(R.string.title_amigos_ayudo));
-//		getSupportActionBar().set
-//		getSupportActionBar().setBackgroundDrawable(new ColorDrawable(R.color.orange));
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
 		
-		listFriends = getListView();
+		View view = inflater.inflate(R.layout.help_smokers, null);
+		
 		currentUser = ParseUser.getCurrentUser();
-
 		if (currentUser != null) {
-			// Check if the user is currently logged
-			// and show any cached content
-			// updateViewsWithProfileInfo();
 			getHelpingSmokersList();
 		} else {
-			// If the user is not logged in, go to the
-			// activity showing the login view.
 			startLoginActivity();
-
 		}
-
 		loadListHelpedFriends();
-
+		return view;
+	}
+	
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		
+		listFriends = getListView();
+		
 	}
 
 	private void getHelpingSmokersList() {
-		 progressDialog = ProgressDialog.show(this, "", "Obteniendo usuarios...", true);
+		 progressDialog = ProgressDialog.show(getActivity(), "", "Obteniendo usuarios...", true);
 
 		ParseRelation<ParseObject> relation = currentUser
 				.getRelation("helpingSmokers");
@@ -104,7 +103,7 @@ public class HelpSmokers extends SherlockListActivity implements OnClickListener
 						// e1.printStackTrace();
 						// }
 					}
-					userAdapter = new UserAdapter(HelpSmokers.this, friends,
+					userAdapter = new UserAdapter(getActivity(), friends,
 							false, true);
 					listFriends.setAdapter(userAdapter);
 				} else {
@@ -116,7 +115,7 @@ public class HelpSmokers extends SherlockListActivity implements OnClickListener
 	}
 
 	private void startLoginActivity() {
-		Intent intent = new Intent(this, MainActivity.class);
+		Intent intent = new Intent(getActivity(), MainActivity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(intent);
@@ -127,26 +126,26 @@ public class HelpSmokers extends SherlockListActivity implements OnClickListener
 
 	}
 	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-
-		ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setDisplayShowHomeEnabled(false);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-		actionBar.setCustomView(R.layout.helping_menu);
-		actionBar.setDisplayShowCustomEnabled(true);
-		
-		ImageButton AddSmokers = (ImageButton) findViewById(R.id.add_smokers);
-		
-		AddSmokers.setOnClickListener(this);
-				
-		return true;
-	
-	}
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//
+//		ActionBar actionBar = getSupportActionBar();
+//        actionBar.setDisplayShowTitleEnabled(false);
+//        actionBar.setDisplayShowHomeEnabled(false);
+//		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+//		actionBar.setCustomView(R.layout.helping_menu);
+//		actionBar.setDisplayShowCustomEnabled(true);
+//		
+//		ImageButton AddSmokers = (ImageButton) findViewById(R.id.add_smokers);
+//		
+//		AddSmokers.setOnClickListener(this);
+//				
+//		return true;
+//	
+//	}
 
 	private void showAddSmokersActivity() {
-		Intent intent = new Intent(this, AddSmokers.class);
+		Intent intent = new Intent(getActivity(), AddSmokers.class);
 		startActivity(intent);
 	}
 
