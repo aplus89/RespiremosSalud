@@ -102,8 +102,8 @@ public class MainActivity extends SherlockActivity implements OnClickListener {
 		startActivity(intent);		
 	}
 	private void showHomeActiviy() {
-		Intent intent = new Intent(this, HomeActivity.class);
-		startActivity(intent);		
+		Intent intent = new Intent(this, RedisenoActivity.class);
+		startActivity(intent);
 	}
 
 	private void showCuandoActivity() {

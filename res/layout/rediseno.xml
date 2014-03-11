@@ -1,7 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    >
+    <cr.gov.respiremossalud.ui.UIScrollView 
+        android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scrollMain"
+    android:scrollbars="none"
+        >
+        
+        <LinearLayout 
+            android:orientation="vertical"
+             android:layout_width="match_parent"
+    android:layout_height="match_parent"
+            >
+            
+            <Chronometer
+	            android:id="@+id/cronometro"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:visibility="gone"
+	            android:text="Chronometer" />
+            
+            <LinearLayout
+                android:id="@+id/layoutMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                 >
+
+                <Button
+                    
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="100dp"
+        android:text="@string/logout"
+        android:textColor="#fff"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_login"
+        />
+                
+			</LinearLayout>
+            
+            <LinearLayout 
+                android:id="@+id/layoutPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+          
+                android:orientation="vertical"
+                >
+                
+                <com.facebook.widget.ProfilePictureView
+                android:id="@+id/userProfilePicture"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                facebook:preset_size="normal" />
+                
+                 <TextView
+        android:id="@+id/userName"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textColor="#fff"
+        android:text="Nombre"
+        android:textSize="30sp" />
+                
+                <TextView
+            android:id="@+id/puntos_text"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text="122"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="40sp" />
+                
+                <TextView
+            android:id="@+id/tiempo_text"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text="8d 9hr"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="40sp" />
+                
+            </LinearLayout>
+            
+            <FrameLayout 
+                android:id="@+id/mainView"
+        android:layout_width="match_parent"
+    android:layout_height="400dp"
+        >
+        
+           
+            
+            </FrameLayout>    
+            
+        </LinearLayout>
+        
+    </cr.gov.respiremossalud.ui.UIScrollView>
     
 
 </AbsoluteLayout>

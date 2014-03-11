@@ -97,7 +97,7 @@ public class UserDetailsActivity extends SherlockActivity {
 		userProfilePictureView.setProfileId(facebookId);
 		userNameView.setText(currentUser.getString("nombre"));
 		puntosText.setText(currentUser.getInt("points") + " Puntos");
-
+		
 	}
 
 	private void onLogoutButtonClicked() {

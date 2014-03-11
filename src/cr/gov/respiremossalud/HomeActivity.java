@@ -64,7 +64,6 @@ public class HomeActivity extends SherlockFragmentActivity implements OnClickLis
 		cronometro = (Chronometer) findViewById(R.id.cronometro);
 		cronometro.setOnChronometerTickListener(this);
 
-		
 		beneficiosSection.setOnClickListener(this);
 		perfilSection.setOnClickListener(this);    
 		ayudandoSection.setOnClickListener(this);  
