@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
     >
-    <ScrollView
+    <cr.gov.respiremossalud.ui.UIScrollView
         android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/scrollMain"
@@ -183,7 +183,7 @@
             
         </LinearLayout>
         
-    </ScrollView>
+    </cr.gov.respiremossalud.ui.UIScrollView>
     
 
 </AbsoluteLayout>
