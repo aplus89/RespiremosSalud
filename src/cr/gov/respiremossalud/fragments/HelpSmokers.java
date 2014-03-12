@@ -1,42 +1,33 @@
-package cr.gov.respiremossalud;
+package cr.gov.respiremossalud.fragments;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.widget.ImageButton;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.app.SherlockListActivity;
-import com.actionbarsherlock.view.Menu;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
+import cr.gov.respiremossalud.AddSmokers;
+import cr.gov.respiremossalud.MainActivity;
+import cr.gov.respiremossalud.R;
+import cr.gov.respiremossalud.R.id;
+import cr.gov.respiremossalud.R.layout;
 import cr.gov.respiremossalud.data.UserAdapter;
 import cr.gov.respiremossalud.model.User;
 
-public class HelpSmokers extends ListFragment implements OnClickListener {
+public class HelpSmokers extends EFragment implements OnClickListener {
 	private ListView listFriends;
 	private ParseUser currentUser;
 	protected UserAdapter userAdapter;
@@ -49,13 +40,6 @@ public class HelpSmokers extends ListFragment implements OnClickListener {
 		
 		View view = inflater.inflate(R.layout.help_smokers, null);
 		
-		currentUser = ParseUser.getCurrentUser();
-		if (currentUser != null) {
-			getHelpingSmokersList();
-		} else {
-			startLoginActivity();
-		}
-		loadListHelpedFriends();
 		return view;
 	}
 	
@@ -64,8 +48,16 @@ public class HelpSmokers extends ListFragment implements OnClickListener {
 		super.onActivityCreated(savedInstanceState);
 		
 		listFriends = getListView();
+		currentUser = ParseUser.getCurrentUser();
+		if (currentUser != null) {
+			getHelpingSmokersList();
+		} else {
+			startLoginActivity();
+		}
+		loadListHelpedFriends();
 		
 	}
+
 
 	private void getHelpingSmokersList() {
 		 progressDialog = ProgressDialog.show(getActivity(), "", "Obteniendo usuarios...", true);

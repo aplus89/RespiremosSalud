@@ -1,13 +1,9 @@
 package cr.gov.respiremossalud.ui;
 
-//import com.actionbarsherlock.internal.nineoldandroids.animation.Animator;
-//import com.actionbarsherlock.internal.nineoldandroids.animation.Animator.AnimatorListener;
-//import com.actionbarsherlock.internal.nineoldandroids.animation.AnimatorSet;
-//import com.actionbarsherlock.internal.nineoldandroids.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.widget.ScrollView;
+import android.widget.ListView;
 
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.Animator.AnimatorListener;
@@ -16,7 +12,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.PropertyValuesHolder;
 import com.nineoldandroids.view.animation.AnimatorProxy;
 
-public class UIScrollView extends ScrollView {
+public class UIListView extends ListView {
 	
 	private Runnable scrollerTask;
 	private int initialPosition;
@@ -27,7 +23,7 @@ public class UIScrollView extends ScrollView {
 	}
 	
 	public interface OnScrollChangedListener {
-	    void onScrollChanged( UIScrollView v, int l, int t, int oldl, int oldt );
+	    void onScrollChanged( UIListView v, int l, int t, int oldl, int oldt );
 	}
 	
 	private OnScrollChangedListener onScrollChangedListener;
@@ -40,7 +36,7 @@ public class UIScrollView extends ScrollView {
 
 	
 	
-	public UIScrollView(Context context, AttributeSet attrs) {
+	public UIListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 
 		scrollerTask = new Runnable() {
@@ -52,7 +48,7 @@ public class UIScrollView extends ScrollView {
 	                }
 	            }else{
 	                initialPosition = getScrollY();
-	                UIScrollView.this.postDelayed(scrollerTask, newCheck);
+	                UIListView.this.postDelayed(scrollerTask, newCheck);
 	            }
 	        }
 	    };
@@ -64,15 +60,10 @@ public class UIScrollView extends ScrollView {
 		PropertyValuesHolder pvh = PropertyValuesHolder.ofInt("scrollY", this.getScrollY(), y);
 		ObjectAnimator yTranslate = ObjectAnimator.ofPropertyValuesHolder(AnimatorProxy.NEEDS_PROXY ?
 		        AnimatorProxy.wrap(this) : this, pvh);
-//		.start();
-		
-//		ObjectAnimator xTranslate = ObjectAnimator.ofInt(this, "scrollX", x);
-//	    ObjectAnimator yTranslate = ObjectAnimator.ofInt(this, "scrollY", y);
 	    
 	    AnimatorSet animators = new AnimatorSet();
 	    animators.setDuration(1000L);
 	    animators.play(yTranslate);
-//	    animators.playTogether(xTranslate, yTranslate);
 	    animators.setInterpolator(new AccelerateDecelerateInterpolator());
 	    animators.addListener(new AnimatorListener() {
 
@@ -102,13 +93,6 @@ public class UIScrollView extends ScrollView {
 	    animators.start();
 	}
 	
-//	onscrollch
-	
-//	protected void onScrollChanged(int l, int t, int oldl, int oldt) {
-//	    mOnScrollViewListener.onScrollChanged( this, l, t, oldl, oldt );
-//	    super.onScrollChanged( l, t, oldl, oldt );
-//	}
-	
 	@Override
 	protected void onScrollChanged(int l, int t, int oldl, int oldt) {
 		// TODO Auto-generated method stub
@@ -116,13 +100,15 @@ public class UIScrollView extends ScrollView {
 		super.onScrollChanged(l, t, oldl, oldt);
 	}
 	
-	public void setOnScrollStoppedListener(UIScrollView.OnScrollStoppedListener listener){
+	public void setOnScrollStoppedListener(UIListView.OnScrollStoppedListener listener){
 	    onScrollStoppedListener = listener;
 	}
 	
 	public void startScrollerTask(){
 	    initialPosition = getScrollY();
-	    UIScrollView.this.postDelayed(scrollerTask, newCheck);
+	    UIListView.this.postDelayed(scrollerTask, newCheck);
 	}
+	
+	
 
 }

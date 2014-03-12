@@ -1,11 +1,18 @@
-package cr.gov.respiremossalud;
+package cr.gov.respiremossalud.fragments;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ListView;
+
 import com.parse.FindCallback;
 import com.parse.ParseACL;
 import com.parse.ParseException;
@@ -14,31 +21,16 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import cr.gov.respiremossalud.R;
+import cr.gov.respiremossalud.RespiremosSalud;
 import cr.gov.respiremossalud.data.MessagesAdapter;
-import cr.gov.respiremossalud.model.Locationh;
 import cr.gov.respiremossalud.model.Message;
 import cr.gov.respiremossalud.model.User;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ListView;
-
-public class ReciveMessagesActivity extends Fragment implements
+public class ReciveMessagesActivity extends EFragment implements
 		OnClickListener {
 	private ListView list_messages;
 	private EditText edit_message;
-	private Button send_message;
 	private ArrayList<Message> messagesData = new ArrayList<Message>();
 	private MessagesAdapter messageAdapter;
 	private ParseUser currentUser;
@@ -56,7 +48,17 @@ public class ReciveMessagesActivity extends Fragment implements
 		// friendTo = (ParseUser) ParseObject.createWithoutData("_User",
 		// intent.getStringExtra("toId"));
 
-		list_messages = (ListView) view.findViewById(R.id.list_messages);
+		
+		
+		return view;
+		
+	}
+	
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		
+		list_messages = getListView();
 
 		messageAdapter = new MessagesAdapter(getActivity(), messagesData, true, true);
 		list_messages.setAdapter(messageAdapter);
@@ -65,8 +67,6 @@ public class ReciveMessagesActivity extends Fragment implements
 //		actionBar.setTitle("Recive Mensajes Positivos");
 
 		getMessages();
-		
-		return view;
 		
 	}
 

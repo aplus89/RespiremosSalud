@@ -1,30 +1,23 @@
 package cr.gov.respiremossalud;
 
-import java.util.Arrays;
-import java.util.Currency;
 import java.util.Date;
-import java.util.List;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.Hours;
 import org.joda.time.Minutes;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.Button;
@@ -32,35 +25,21 @@ import android.widget.Chronometer;
 import android.widget.Chronometer.OnChronometerTickListener;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.facebook.FacebookRequestError;
-import com.facebook.Request;
-import com.facebook.Response;
-import com.facebook.Session;
-import com.facebook.model.GraphUser;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.facebook.widget.ProfilePictureView;
 import com.nineoldandroids.view.ViewHelper;
-import com.parse.LogInCallback;
-import com.parse.ParseAnalytics;
-import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
-import com.parse.SaveCallback;
-import com.parse.ParseFacebookUtils.Permissions;
-import com.parse.ParseInstallation;
 import com.parse.ParseUser;
-import com.parse.PushService;
 
-import cr.gov.respiremossalud.fragments.InfoFragment;
+import cr.gov.respiremossalud.fragments.MensajesFragment;
 import cr.gov.respiremossalud.model.User;
 import cr.gov.respiremossalud.ui.UIScrollView;
 import cr.gov.respiremossalud.ui.UIScrollView.OnScrollChangedListener;
 import cr.gov.respiremossalud.ui.UIScrollView.OnScrollStoppedListener;
 
-public class RedisenoActivity extends SherlockActivity implements OnChronometerTickListener {
+public class RedisenoActivity extends SherlockFragmentActivity implements OnChronometerTickListener {
 
 	private Button loginButton;
 	private Dialog progressDialog;
@@ -104,6 +83,17 @@ public class RedisenoActivity extends SherlockActivity implements OnChronometerT
 			}
 		});
 		
+		mainView = (FrameLayout) findViewById(R.id.mainView);
+		
+		MensajesFragment mensajesFragment = new MensajesFragment();
+		FragmentManager fragmentManager = getSupportFragmentManager();
+		FragmentTransaction fts = fragmentManager.beginTransaction();
+
+		fts.add(mainView.getId(), mensajesFragment);
+//		mensajesFragment
+//		fts.add(mainView, listFragment);
+//		listFragment.show();
+		fts.commit()	;
 		
 		
 //		final ScrollView scrollChild = (ScrollView)findViewById(R.id.scrollChild);  // your listview inside scrollview
@@ -113,7 +103,6 @@ public class RedisenoActivity extends SherlockActivity implements OnChronometerT
 		final LinearLayout layoutMenu = (LinearLayout)findViewById(R.id.layoutMenu);
 		final LinearLayout layoutPerfil = (LinearLayout)findViewById(R.id.layoutPerfil);
 		
-		mainView = (FrameLayout) findViewById(R.id.mainView);
 		
 		final ViewTreeObserver observer= scrollMain.getViewTreeObserver();
 	       observer.addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
