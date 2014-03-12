@@ -86,15 +86,17 @@ public class RedisenoActivity extends SherlockFragmentActivity implements OnChro
 		mainView = (FrameLayout) findViewById(R.id.mainView);
 		
 		MensajesFragment mensajesFragment = new MensajesFragment();
+		BenefitsActivity beneficiosFragment = new BenefitsActivity();
+//		MensajesFragment mensajesFragment = new MensajesFragment();
+//		MensajesFragment mensajesFragment = new MensajesFragment();
+		
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		FragmentTransaction fts = fragmentManager.beginTransaction();
-
-		fts.add(mainView.getId(), mensajesFragment);
-//		mensajesFragment
-//		fts.add(mainView, listFragment);
-//		listFragment.show();
-		fts.commit()	;
 		
+		fts.add(mainView.getId(), beneficiosFragment);
+		fts.add(mainView.getId(), mensajesFragment);
+		
+		fts.commit()	;
 		
 //		final ScrollView scrollChild = (ScrollView)findViewById(R.id.scrollChild);  // your listview inside scrollview
 		

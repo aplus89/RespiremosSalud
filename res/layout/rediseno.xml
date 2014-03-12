@@ -31,7 +31,32 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                  >
+                
+    <LinearLayout
+        android:id="@+id/beneficios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
+        <ImageView
+            android:id="@+id/ImageView04"
+            android:layout_width="74dp"
+            android:scaleType="center"
+            android:layout_height="74dp"
+            android:src="@drawable/home_icon_perfil" />
+
+        <TextView
+            android:id="@+id/puntos_text"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text="Beneficios"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="40sp" />
+        
+    </LinearLayout>
+                
                 <Button
                     
         android:id="@+id/logoutButton"
