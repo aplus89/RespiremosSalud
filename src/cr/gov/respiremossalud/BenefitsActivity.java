@@ -1,45 +1,30 @@
 package cr.gov.respiremossalud;
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.Hours;
 import org.joda.time.Minutes;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.Chronometer;
-import android.widget.ProgressBar;
 import android.widget.Chronometer.OnChronometerTickListener;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.facebook.FacebookRequestError;
-import com.facebook.LoginActivity;
-import com.facebook.Request;
-import com.facebook.Response;
-import com.facebook.Session;
-import com.facebook.model.GraphUser;
-import com.facebook.widget.ProfilePictureView;
-import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 
+import cr.gov.respiremossalud.fragments.EFragment;
 import cr.gov.respiremossalud.model.User;
 
-public class BenefitsActivity extends SherlockActivity implements OnChronometerTickListener {
+public class BenefitsActivity extends EFragment implements OnChronometerTickListener {
 
 	private Chronometer cronometro;
 	private ParseUser currentUser;
@@ -143,34 +128,34 @@ public class BenefitsActivity extends SherlockActivity implements OnChronometerT
 	private TextView porcentaje4yr;
 	private TextView porcentaje10yr;
 	
-
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.benefits);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+
+		View view = inflater.inflate(R.layout.benefits, null);
 //		getSupportActionBar().setTitle(getString(R.string.title_beneficios));
 		currentUser = ParseUser.getCurrentUser();
-		cronometro = (Chronometer) findViewById(R.id.cronometro);
+		cronometro = (Chronometer) view.findViewById(R.id.cronometro);
 		
 		cronometro.setOnChronometerTickListener(this);
 		
-		progress20min = (ProgressBar) findViewById(R.id.progress20min);
-		progress8hr = (ProgressBar) findViewById(R.id.progress8hr);
-		progress48hr = (ProgressBar) findViewById(R.id.progress48hr);
-		progress72hr = (ProgressBar) findViewById(R.id.progress72hr);
-		progress6mes = (ProgressBar) findViewById(R.id.progress6mes);
-		progress1yr = (ProgressBar) findViewById(R.id.progress1yr);
-		progress4yr = (ProgressBar) findViewById(R.id.progress4yr);
-		progress10yr = (ProgressBar) findViewById(R.id.progress10yr);
+		progress20min = (ProgressBar) view.findViewById(R.id.progress20min);
+		progress8hr = (ProgressBar) view.findViewById(R.id.progress8hr);
+		progress48hr = (ProgressBar) view.findViewById(R.id.progress48hr);
+		progress72hr = (ProgressBar) view.findViewById(R.id.progress72hr);
+		progress6mes = (ProgressBar) view.findViewById(R.id.progress6mes);
+		progress1yr = (ProgressBar) view.findViewById(R.id.progress1yr);
+		progress4yr = (ProgressBar) view.findViewById(R.id.progress4yr);
+		progress10yr = (ProgressBar) view.findViewById(R.id.progress10yr);
 		
-		porcentaje20min = (TextView) findViewById(R.id.porcentaje20min);
-		porcentaje8hr = (TextView) findViewById(R.id.porcentaje8hr);
-		porcentaje48hr = (TextView) findViewById(R.id.porcentaje48hr);
-		porcentaje72hr = (TextView) findViewById(R.id.porcentaje72hr);
-		porcentaje6mes = (TextView) findViewById(R.id.porcentaje6mes);
-		porcentaje1yr = (TextView) findViewById(R.id.porcentaje1yr);
-		porcentaje4yr = (TextView) findViewById(R.id.porcentaje4yr);
-		porcentaje10yr = (TextView) findViewById(R.id.porcentaje10yr);
+		porcentaje20min = (TextView) view.findViewById(R.id.porcentaje20min);
+		porcentaje8hr = (TextView) view.findViewById(R.id.porcentaje8hr);
+		porcentaje48hr = (TextView) view.findViewById(R.id.porcentaje48hr);
+		porcentaje72hr = (TextView) view.findViewById(R.id.porcentaje72hr);
+		porcentaje6mes = (TextView) view.findViewById(R.id.porcentaje6mes);
+		porcentaje1yr = (TextView) view.findViewById(R.id.porcentaje1yr);
+		porcentaje4yr = (TextView) view.findViewById(R.id.porcentaje4yr);
+		porcentaje10yr = (TextView) view.findViewById(R.id.porcentaje10yr);
 		
 //		R.id.te
 		
@@ -187,6 +172,7 @@ public class BenefitsActivity extends SherlockActivity implements OnChronometerT
 			
 		}
 		
+		return view;
 	}
 
 	@Override
@@ -266,7 +252,7 @@ public class BenefitsActivity extends SherlockActivity implements OnChronometerT
 	}
 
 	private void startLoginActivity() {
-		Intent intent = new Intent(this, MainActivity.class);
+		Intent intent = new Intent(getActivity(), MainActivity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(intent);
@@ -307,17 +293,16 @@ public class BenefitsActivity extends SherlockActivity implements OnChronometerT
 		
 	}
 	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		ActionBar actionBar = getSupportActionBar();
+//	    actionBar.setDisplayShowTitleEnabled(false);
+//	    actionBar.setDisplayShowHomeEnabled(false);
+//		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+//		actionBar.setCustomView(R.layout.beneficios_menu);
+//		actionBar.setDisplayShowCustomEnabled(true);
+//		return true;
+//	}
 
-		ActionBar actionBar = getSupportActionBar();
-	    actionBar.setDisplayShowTitleEnabled(false);
-	    actionBar.setDisplayShowHomeEnabled(false);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-		actionBar.setCustomView(R.layout.beneficios_menu);
-		actionBar.setDisplayShowCustomEnabled(true);
-				
-		return true;
-
-	}
+	
 }
