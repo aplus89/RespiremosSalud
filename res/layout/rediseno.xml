@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
     >
-    <cr.gov.respiremossalud.ui.UIScrollView 
+    <ScrollView
         android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/scrollMain"
@@ -33,7 +33,7 @@
                  >
                 
     <LinearLayout
-        android:id="@+id/beneficios"
+        android:id="@+id/benefits"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
@@ -50,7 +50,57 @@
             android:layout_width="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_height="wrap_content"
-            android:text="Beneficios"
+            android:text="BENEFICIOS"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="40sp" />
+        
+    </LinearLayout>
+    
+        <LinearLayout
+        android:id="@+id/denuncia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/ImageView04"
+            android:layout_width="74dp"
+            android:scaleType="center"
+            android:layout_height="74dp"
+            android:src="@drawable/home_icon_perfil" />
+
+        <TextView
+            android:id="@+id/puntos_text"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text="DENUNCIA"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="40sp" />
+        
+    </LinearLayout>
+    
+            <LinearLayout
+        android:id="@+id/ley"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/ImageView04"
+            android:layout_width="74dp"
+            android:scaleType="center"
+            android:layout_height="74dp"
+            android:src="@drawable/home_icon_perfil" />
+
+        <TextView
+            android:id="@+id/puntos_text"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:text="LEY9028"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#fff"
             android:textSize="40sp" />
@@ -133,7 +183,7 @@
             
         </LinearLayout>
         
-    </cr.gov.respiremossalud.ui.UIScrollView>
+    </ScrollView>
     
 
 </AbsoluteLayout>
