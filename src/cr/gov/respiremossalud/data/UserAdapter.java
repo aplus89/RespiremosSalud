@@ -9,10 +9,10 @@ import com.parse.ParseObject;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
-import cr.gov.respiremossalud.HelpSmokers;
 import cr.gov.respiremossalud.R;
 import cr.gov.respiremossalud.RespiremosSalud;
 import cr.gov.respiremossalud.SendMessagesActivity;
+import cr.gov.respiremossalud.fragments.HelpSmokers;
 import cr.gov.respiremossalud.model.Message;
 import cr.gov.respiremossalud.model.User;
 import android.content.Context;

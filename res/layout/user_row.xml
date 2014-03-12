@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="80dp"
         android:id="@+id/user_row"
+        android:background="#678944"
         android:padding="8dp"
     android:orientation="horizontal" >
     

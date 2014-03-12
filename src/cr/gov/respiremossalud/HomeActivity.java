@@ -11,6 +11,8 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.parse.ParseUser;
 
+import cr.gov.respiremossalud.fragments.HelpSmokers;
+import cr.gov.respiremossalud.fragments.ReciveMessagesActivity;
 import cr.gov.respiremossalud.model.User;
 
 import android.app.Activity;

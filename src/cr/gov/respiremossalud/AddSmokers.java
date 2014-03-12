@@ -36,6 +36,7 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import cr.gov.respiremossalud.data.UserAdapter;
+import cr.gov.respiremossalud.fragments.HelpSmokers;
 import cr.gov.respiremossalud.model.User;
 
 public class AddSmokers extends SherlockListActivity implements OnClickListener {

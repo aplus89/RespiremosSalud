@@ -1,19 +1,16 @@
 package cr.gov.respiremossalud;
 
 import java.util.Arrays;
-import java.util.Currency;
 import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -28,19 +25,17 @@ import com.parse.LogInCallback;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
-import com.parse.SaveCallback;
 import com.parse.ParseFacebookUtils.Permissions;
 import com.parse.ParseInstallation;
 import com.parse.ParseUser;
 import com.parse.PushService;
+import com.parse.SaveCallback;
 
-import cr.gov.respiremossalud.fragments.InfoFragment;
-import cr.gov.respiremossalud.fragments.MensajesFragment;
+import cr.gov.respiremossalud.fragments.HelpSmokers;
 import cr.gov.respiremossalud.model.User;
 
 public class MainActivity extends SherlockActivity implements OnClickListener {
 
-	private Button loginButton;
 	private Dialog progressDialog;
 	private Button buttonNo;
 	private Button buttonEx;
@@ -98,42 +93,43 @@ public class MainActivity extends SherlockActivity implements OnClickListener {
 		}
 	}
 	
-	private void showReciveActiviy() {
-		Intent intent = new Intent(this, ReciveMessagesActivity.class);
-		startActivity(intent);		
-	}
+//	private void showReciveActiviy() {
+//		Intent intent = new Intent(this, ReciveMessagesActivity.class);
+//		startActivity(intent);		
+//	}
+	
 	private void showHomeActiviy() {
-		Intent intent = new Intent(this, MensajesFragment.class);
+		Intent intent = new Intent(this, RedisenoActivity.class);
 		startActivity(intent);
 	}
 
-	private void showCuandoActivity() {
-		Intent intent = new Intent(this, CuandoActivity.class);
-		startActivity(intent);
-	}
+//	private void showCuandoActivity() {
+//		Intent intent = new Intent(this, CuandoActivity.class);
+//		startActivity(intent);
+//	}
 	private void showDatosActivity() {
 		Intent intent = new Intent(this, DatosActivity.class);
 		startActivity(intent);
 	}
-	private void showUserActivity() {
-		Intent intent = new Intent(this, UserDetailsActivity.class);
-		startActivity(intent);
-	}
-	private void showInfoFragment() {
-		Intent intent = new Intent(this, InfoFragment.class);
-		startActivity(intent);
-	}
-	private void showBenefitsActivity() {
-		Intent intent = new Intent(this, BenefitsActivity.class);
-		startActivity(intent);
-	}
-	private void showDenunciaActivity() {
-		Intent intent = new Intent(this, DenunciaActivity.class);
-		startActivity(intent);
-	}
+//	private void showUserActivity() {
+//		Intent intent = new Intent(this, UserDetailsActivity.class);
+//		startActivity(intent);
+//	}
+//	private void showInfoFragment() {
+//		Intent intent = new Intent(this, InfoFragment.class);
+//		startActivity(intent);
+//	}
+//	private void showBenefitsActivity() {
+//		Intent intent = new Intent(this, BenefitsActivity.class);
+//		startActivity(intent);
+//	}
+//	private void showDenunciaActivity() {
+//		Intent intent = new Intent(this, DenunciaActivity.class);
+//		startActivity(intent);
+//	}
 
 	private void onLoginButtonClicked() {
-		 progressDialog = ProgressDialog.show(this, "", "Logging in...", true);
+		progressDialog = ProgressDialog.show(this, "", "Logging in...", true);
 		List<String> permissions = Arrays.asList("basic_info", "user_about_me",
 				"user_relationships", "user_birthday", "user_location",
 				Permissions.Friends.ABOUT_ME);
